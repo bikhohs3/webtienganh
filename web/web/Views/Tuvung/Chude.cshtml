@@ -1,0 +1,59 @@
+﻿@*@model web.Models.Database.Detai*@
+@model IEnumerable<web.Models.Database.Detai>
+@{
+    ViewBag.Title = "Chude";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+
+@*<body style="background-image:url(/Content/images/demo/bia/bgmay.jpg)">*@
+
+<style>
+    body {        
+        font-family:'Times New Roman'
+    }
+    
+</style>
+
+    <div class="wrapper row3" style="background-color:lightblue">
+        @*<img src="~/Content/images/demo/bia/bgmay.jpg" />*@
+        <main class="hoc container clear">
+            <!-- main body -->
+            <div class="content">
+                <div id="gallery">
+                    @*<header class="heading"></header>*@
+                    <center>
+                        <h1 class="text-center" style="color:red">Danh Sách</h1>
+
+
+                        @foreach (var item in Model)
+                        {
+                            <ol class="col-md-2">
+                                <li class="one_quarter">
+
+                                    <a href="@Url.Action("Tuvung","Tuvung",new { id = @item.maDetai})">
+                                        <img src="@item.image" alt="" />
+
+                                        <p><strong style="color: red">@item.tenDetaita</strong></p>
+                                        <p><strong style="color: black">@item.tenDetai </strong></p>
+
+                                    </a>
+
+                                </li>
+                            </ol>
+                        }
+                    </center>
+                    @*@foreach (var item in Model)
+                    {
+                        <li><a href="@Url.Action("Chude","Tuvung",new { id = @item.maDetai})">@item.tenDetai</a></li>
+                    }*@
+                </div>
+            </div>
+            <!-- / main body -->
+            <div class="clear"></div>
+        </main>
+    </div>
+@*</body>*@
+
+
+

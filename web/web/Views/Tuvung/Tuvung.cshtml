@@ -1,0 +1,36 @@
+﻿@model IEnumerable<web.Models.Database.Tuvung>
+
+@{
+    ViewBag.Title = "Tuvung";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<div class="wrapper row3" style="background-color: aliceblue">
+    <main class="hoc container clear">
+        <!-- main body -->
+        <div class="Vuong">
+            <div id="King">
+                <center>
+                    <h1 class="text-center" style="color:red">Từ vựng</h1>
+
+                    @foreach (var item in Model)
+                    {
+                        <ol class="one_quarter">
+
+                            <img src="@item.image" alt="" />
+
+                            <p><strong style="color: red">@item.tenTuta</strong></p>
+                            <p><strong style="color: black">@item.tenTu</strong></p>
+                        </ol>
+                    }
+                </center>
+                
+                <div class="clear"></div>
+            </div>
+
+        </div>
+        <!-- / main body -->
+        <div class="clear"></div>
+    </main>
+</div>
+
