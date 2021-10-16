@@ -10,49 +10,118 @@
 
 <style>
     body {        
-        font-family:'Times New Roman'
+        font-family:Arial;
+
     }
-    
+    .container{
+        
+        margin:auto;
+    }
+    .main {
+        font-family: Arial;
+        width: 1202px;
+        /*border: 0.5px red solid;
+        border-style: dashed;*/
+        background-color: aliceblue;
+        margin: auto;
+    }
+
+        .main .product {
+            border-style: groove;
+            border: orangered 1px solid;
+            float: left;
+            width: 280px;
+            height: 400px;
+            margin: 10px 10px 10px 10px;
+            background-color: lightgreen;
+        }
+
+            .main .product .choose {
+                margin: 3px;
+                width: 272px;
+                height: 280px;
+                background-color: lightgreen;
+            }
+
+    .choose img {
+        width: 272px;
+        height: 280px;
+    }
+
+    .main .product .ten {
+        margin: 3px;
+        width: 272px;
+        height: 110px;
+        background-color: transparent;
+    }
+
+    .ten h3 {
+        text-overflow: ellipsis;
+        padding-top: 5px;
+        text-align: center;
+        color: red;
+    }
+
+
 </style>
 
-    <div class="wrapper row3" style="background-color:lightblue">
+    <div class="wrapper row3" style="background-image: url(/Content/images/demo/backgrounds/biadetai.jpg); background-repeat:no-repeat; background-size:cover" >
         @*<img src="~/Content/images/demo/bia/bgmay.jpg" />*@
-        <main class="hoc container clear">
+        <main class="container">
             <!-- main body -->
-            <div class="content">
-                <div id="gallery">
-                    @*<header class="heading"></header>*@
-                    <center>
-                        <h1 class="text-center" style="color:red">Danh Sách</h1>
+            <p style="font-size:60px; text-align:center; color:red">Chủ đề</p>
+            <div class="main">
+                
+                @foreach (var item in Model)
+                {
 
-
-                        @foreach (var item in Model)
-                        {
-                            <ol class="col-md-2">
-                                <li class="one_quarter">
-
-                                    <a href="@Url.Action("Tuvung","Tuvung",new { id = @item.maDetai})">
-                                        <img src="@item.image" alt="" />
-
-                                        <p><strong style="color: red">@item.tenDetaita</strong></p>
-                                        <p><strong style="color: black">@item.tenDetai </strong></p>
-
-                                    </a>
-
-                                </li>
-                            </ol>
-                        }
-                    </center>
-                    @*@foreach (var item in Model)
-                    {
-                        <li><a href="@Url.Action("Chude","Tuvung",new { id = @item.maDetai})">@item.tenDetai</a></li>
-                    }*@
-                </div>
+                    <a href="@Url.Action("Tuvung","Tuvung",new { id = @item.maDetai})">
+                    <div class="product">
+                        <div class="choose">
+                            <img src="@item.image" alt="" />
+                        </div>
+                        <div class="ten">
+                                <h3><strong style="color: red">@item.tenDetaita</strong></h3>
+                                <h3><strong style="color: black">@item.tenDetai </strong></h3>
+                        </div>
+                    </div>
+                    </a>
+                }
             </div>
-            <!-- / main body -->
-            <div class="clear"></div>
-        </main>
-    </div>
+                    @*<header class="heading"></header>*@
+                    @*<div style="margin:auto">
+                <h3 style="color:red">Danh Sách</h3>
+
+
+                @foreach (var item in Model)
+                {
+                <div class="item" style="background-color:black">
+                    <ol style="align-items:center">
+                        <li class="one_quarter">
+
+                            <a href="@Url.Action("Tuvung","Tuvung",new { id = @item.maDetai})">
+                                <img src="@item.image" alt="" />
+
+                                <p><strong style="color: red">@item.tenDetaita</strong></p>
+                                <p><strong style="color: black">@item.tenDetai </strong></p>
+
+                            </a>
+
+                        </li>
+                    </ol>
+                </div>
+                }
+            </div>*@
+                    @*@foreach (var item in Model)
+            {
+                <li><a href="@Url.Action("Chude","Tuvung",new { id = @item.maDetai})">@item.tenDetai</a></li>
+            }*@
+
+
+                    <!-- / main body -->
+                    <div class="clear"></div>
+</main>
+</div>
 @*</body>*@
 
 

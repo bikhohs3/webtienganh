@@ -20,7 +20,7 @@
     <!-- Form without bootstrap -->
     <div class="auth-wrapper">
 
-         @using (Html.BeginForm())
+         @using (Html.BeginForm(FormMethod.Post))
          { 
             <div class="auth-container">
                 <div class="auth-action-left">
@@ -32,18 +32,18 @@
                             <div class="auth-external-list">
                             </div>
                         </div>
-                        <form class="login-form">
-                            <input type="text" class="auth-form-input" name="sdthoai" placeholder="Số điện thoại đã đăng ký">
+                        <div class="login-form">
+                            <input type="text" class="auth-form-input" name="sdthoai" placeholder="Số điện thoại đã đăng ký" required>
                             @*<div class="input-icon">
                                     <input type="password" class="auth-form-input" placeholder="Password">
                                     <i class="fa fa-eye show-password"></i>
                                 </div>*@
                             @*<center>@ViewBag.loi1</center>*@
                             <div class="footer-action">
-                                <input type="submit" class="auth-submit" value="Đăng nhập" formaction="@Url.Action("Index", "Home")">
+                                <input type="submit" class="auth-submit" value="Đăng nhập" formaction="@Url.Action("Login", "Dangnhap")">
                                 <a href="/Dangnhap/Dangky" class="auth-btn-direct">Đăng ký</a>
                             </div>
-                        </form>
+                        </div>
                         @*<div class="auth-forgot-password">
                                 <a href="#">Forfot Password</a>
                             </div>*@

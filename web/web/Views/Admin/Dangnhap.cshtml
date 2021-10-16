@@ -1,0 +1,35 @@
+﻿@model web.Models.Database.DbContext1
+
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/Content/styles/fontawesome-free/LoginAdmin.css">
+</head>
+<body>
+    <div class="login">
+        <h2>Đăng Nhập Admin</h2>
+        <br>
+        <center>
+            <p>SĐT</p>
+            <input class="phonenumber" type="text" name="sdtt" placeholder="Nhập số điện thoại">
+            <br>
+            <p>Pass</p>
+            <input class="pass" type="password" name="pass" placeholder="Nhập mật khẩu">
+            <br>
+            <div class="check">
+                <input class="checkbox" type="checkbox" placeholder="Nhập mật khẩu"> Nhớ mật khẩu
+            </div>
+            <br>
+            <button>Đăng Nhập</button>
+            <br>
+            <a href="#">Quên mật khẩu ?</a>
+        </center>
+    </div>
+
+</body>
+</html>

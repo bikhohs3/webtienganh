@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using web.Models;
 using web.Models.Database;
 using System.Text;
+using WMPLib;
 
 namespace web.Controllers
 {
@@ -25,39 +26,48 @@ namespace web.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult Login(FormCollection form)
         {
-            if (ModelState.IsValid)
-            {
-                //var f_password = GetMD5(password);
+            //if (ModelState.IsValid)
+            //{
+            //    //var f_password = GetMD5(password);
+            //    //Dangky _login = new Dangky();
 
-                var sdtt = Int32.Parse(form["sdthoai"]);
-                
-                var data = db.Dangkies.Where(s => s.sdt.Equals(sdtt)).ToList();
+            //    //String sdtt = (form["sdthoai"]);
 
-                if (data.Count() > 0)
-                {                    
-                    Session["idUser"] = data.FirstOrDefault().maUser;
-                    Session["Sdt"] = data.FirstOrDefault().sdt;
-                    Session["FullName"] = data.FirstOrDefault().tenBe;
-                    Session["Total"] = data.FirstOrDefault().tongDiem;
-                }
-                else
-                {
-                    ViewBag.error = "Đăng nhập thất bại";
-                }
-            }
-            return View();
+            //    var data = db.Dangkies.Where(s => s.sdt.Equals(sdtt)).ToList();
+            //    Console.WriteLine("Đăng nhập thành công ^^ ");
+
+            //    if (data.Count != 0)
+            //    {                    
+            //        //Session["idUser"] = data.FirstOrDefault().maUser;
+            //        Session["Sdt"] = data.FirstOrDefault().sdt;
+            //        Session["FullName"] = data.FirstOrDefault().tenBe;
+            //        Session["Total"] = data.FirstOrDefault().tongDiem;
+            //    }
+            //    else
+            //    {
+            //        ViewBag.error = "Đăng nhập thất bại";
+            //    }
+            //    Console.WriteLine("Sai!!");
+            //}
+            //return View();
 
             //----------------------------------------------------------------------
-            //var sdtt = Int32.Parse(form["sdt"]);
-            //var acc = db.Dangkies.FirstOrDefault(p => p.sdt.Equals(sdtt));
-            //if(acc == null)
-            //{
-            //    ViewData["loi1"] = "Đăng nhập thất bại";
-            //    Console.WriteLine("Sai.");
-            //}
-            ////return RedirectToAction("Index","Home");
-            //return View();
+            var sdtt = Int32.Parse(form["sdthoai"]);
+            var acc = db.Dangkies.FirstOrDefault(p => p.sdt==sdtt);
+            if (acc == null)
+
+            {
+
+                ViewData["loi1"] = "Đăng nhập thất bại";
+                return RedirectToAction("Login");
+            }
+            Session["Sdt"] = acc.sdt;
+            Session["FullName"] = acc.tenBe;
+            Session["Total"] = acc.tongDiem; 
+            return RedirectToAction("Index", "Home");
+           
         }
+       
 
 
         // GET: Dangnhap/Details/5
@@ -74,33 +84,37 @@ namespace web.Controllers
             if (ModelState.IsValid)
             {
                 Dangky _dangky = new Dangky();
-                //var check = db.Dangkies.FirstOrDefault(s => s.sdt == _dangky.sdt);
-                //if (check == null)
-                //{
-                //_dangky.email = (_dangky.email);
-                //_dangky.tenBe = (_dangky.tenBe);
+                var check = db.Dangkies.FirstOrDefault(s => s.sdt == _dangky.sdt);
+                if (check == null)
+                {
+                    //_dangky.email = (_dangky.email);
+                    //_dangky.tenBe = (_dangky.tenBe);
 
                     _dangky.sdt = Int32.Parse(form["dienthoai"]);
                     _dangky.email = form["mail"];
                     _dangky.tenBe = form["tenbe"];
+                    _dangky.tongDiem = 0;
+                    
 
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.Dangkies.Add(_dangky);
                     db.SaveChanges();
-                    //return RedirectToAction("Index");
-                //}
-                //else
-                //{
-                //    ViewBag.error = "Số điện thoại đã được sử dụng !!!!!";
-                //    return View();
-                //}
-
-
+                }               
+                TempData["DangKy"] = "Đăng ký thành công ^^";
+                //return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.error = "Sai thông tin !!!!!";
+ 
             }
             return View();
 
-
         }
+            
+        
+
+        
 
         // logout
         public ActionResult Logout()

@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DangnhapController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TuvungController.cs" />
@@ -142,9 +143,21 @@
     <Compile Include="Models\Database\Tuvung.cs" />
     <Compile Include="Models\Database\User.cs" />
     <Compile Include="Models\Database\Dangky.cs" />
+    <Compile Include="Models\test\Cauhoi.cs" />
+    <Compile Include="Models\test\Chitietdiem.cs" />
+    <Compile Include="Models\test\Dangky.cs" />
+    <Compile Include="Models\test\Detai.cs" />
+    <Compile Include="Models\test\Model1.cs" />
+    <Compile Include="Models\test\sysdiagram.cs" />
+    <Compile Include="Models\test\Tuvung.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\web.dll" />
+    <Content Include="bin\web.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -155,7 +168,10 @@
     <Content Include="Content\images\demo\546x356.png" />
     <Content Include="Content\images\demo\avatar.png" />
     <Content Include="Content\images\demo\backgrounds\01.png" />
+    <Content Include="Content\images\demo\backgrounds\biadetai.jpg" />
+    <Content Include="Content\images\demo\backgrounds\cartoon-1.jpg" />
     <Content Include="Content\images\demo\backgrounds\index.html" />
+    <Content Include="Content\images\demo\backgrounds\Vector Cartoon Children Painted Landscapes Background.jfif" />
     <Content Include="Content\images\demo\bia\babyshark.jpg" />
     <Content Include="Content\images\demo\bia\bgmay.jpg" />
     <Content Include="Content\images\demo\bia\el.jpg" />
@@ -171,9 +187,12 @@
     <Content Include="Content\scripts\jquery.easypiechart.min.js" />
     <Content Include="Content\scripts\jquery.min.js" />
     <Content Include="Content\scripts\jquery.mobilemenu.js" />
+    <Content Include="Content\scripts\Login.js" />
+    <Content Include="Content\sound\babyshark.mp3" />
     <Content Include="Content\styles\fontawesome-free\css\fontawesome-all.min.css" />
     <Content Include="Content\styles\fontawesome-free\css\index.html" />
     <Content Include="Content\styles\fontawesome-free\index.html" />
+    <Content Include="Content\styles\fontawesome-free\LoginAdmin.css" />
     <Content Include="Content\styles\fontawesome-free\webfonts\fa-brands-400.svg" />
     <Content Include="Content\styles\fontawesome-free\webfonts\fa-regular-400.svg" />
     <Content Include="Content\styles\fontawesome-free\webfonts\fa-solid-900.svg" />
@@ -230,9 +249,9 @@
     <Content Include="Views\Shared\_Main.cshtml" />
     <Content Include="Views\Tuvung\Chude.cshtml" />
     <Content Include="Views\Tuvung\Tuvung.cshtml" />
-    <Content Include="Views\Dangnhap\Dangnhap.cshtml" />
     <Content Include="Views\Dangnhap\Dangky.cshtml" />
     <Content Include="Views\Dangnhap\Login.cshtml" />
+    <Content Include="Views\Admin\Dangnhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -253,6 +272,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

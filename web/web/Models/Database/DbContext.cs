@@ -19,29 +19,29 @@ namespace web.Models.Database
         public static IEnumerable<Detai> Danhsach()
         {
             var db = new DbContext1();
-            return db.Detais.SqlQuery("select * from Detai").ToList();
+            return db.Detais.SqlQuery("select * from Detai");
         }
 
         public static IEnumerable<Tuvung> Tu(string id)
         {
             var db = new DbContext1();
-            return db.Tuvungs.SqlQuery("select * from Tuvung where maDetai = '"+id+"'");
+            return db.Tuvungs.SqlQuery("select * from Tuvung where maDetai = '" + id + "'");
         }
-        
+
         public static IEnumerable<Dangky> Dangky()
         {
             var db = new DbContext1();
             return db.Dangkies.SqlQuery("insert into Dangky values * ");
-            
+
         }
 
-        public static IEnumerable<Dangky> Dangnhap(int sdt)
+        public static IEnumerable<Dangky> Login(int sdt)
         {
             var db = new DbContext1();
             return db.Dangkies.SqlQuery("select * from Dangky where sdt = '" + sdt + "'");
         }
-
-
+      
+       
         //public static Detai ChiTiet(String a)
         //{
         //    var db = new DbContext1();
@@ -65,6 +65,7 @@ namespace web.Models.Database
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Dangky> Dangkies { get; set; }
         public virtual DbSet<Chitietdiem> Chitietdiems { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
