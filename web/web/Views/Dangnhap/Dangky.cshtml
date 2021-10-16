@@ -3,11 +3,17 @@
 @{
     ViewBag.Title = "Dangky";
     Layout = "~/Views/Shared/_Main.cshtml";
+    if (TempData["DangKy"] != null)
+    {
+        ViewData["ThongBao"] = TempData["DangKy"];
+    }
+
 }
 
 
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -32,18 +38,19 @@
                         <h2 class="auth-form-title">
                             Đăng ký tài khoản
                         </h2>
+                        <h4>@ViewData["ThongBao"]</h4>
                         <div class="auth-external-container">
                         </div>
                         <form class="form-group">
-                            <input type="text" class="auth-form-input" name="dienthoai" placeholder="Số điện thoại">
-                            <input type="email" class="auth-form-input" name="mail" placeholder="Email">
+                            <input type="text" class="auth-form-input" name="dienthoai" placeholder="Số điện thoại" required>
+                            <input type="email" class="auth-form-input" name="mail" placeholder="Email" required>
 
                             @*<div class="input-icon">
                                 <input type="password" class="auth-form-input" placeholder="Password">
                                 <i class="fa fa-eye show-password"></i>
                             </div>*@
 
-                            <input type="text" class="auth-form-input" name="tenbe" placeholder="Tên bé">
+                            <input type="text" class="auth-form-input" name="tenbe" placeholder="Tên bé" required>
 
                             @*<label class="btn active">
                                 <input type="checkbox" name='email1' checked>
